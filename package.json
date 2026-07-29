@@ -1,0 +1,17 @@
+{
+  "name": "amlich-ical",
+  "version": "1.0.0",
+  "description": "Vietnamese lunar calendar (âm lịch) milestone feed for Google Calendar as an iCalendar (.ics) file.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --test",
+    "build": "node src/generate.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  }
+}
