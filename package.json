@@ -4,7 +4,7 @@
   "description": "Vietnamese lunar calendar (âm lịch) milestone feed for Google Calendar as an iCalendar (.ics) file.",
   "type": "module",
   "license": "Apache-2.0",
-  "engines": { "node": ">=22" },
+  "engines": { "node": ">=22.18.0" },
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "node --test",
