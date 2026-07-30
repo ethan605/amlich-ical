@@ -92,12 +92,7 @@ test("solar and lunar date conversions round-trip sampled dates", () => {
   for (const solarDate of solarDates) {
     const lunarDate = solarToLunar(solarDate.day, solarDate.month, solarDate.year);
     assert.deepEqual(
-      lunarToSolar(
-        lunarDate.day,
-        lunarDate.month,
-        lunarDate.year,
-        lunarDate.isLeap,
-      ),
+      lunarToSolar(lunarDate.day, lunarDate.month, lunarDate.year, lunarDate.isLeap),
       solarDate,
     );
   }
@@ -129,12 +124,7 @@ test("solar and lunar conversions round-trip every date from 2024 through 2056",
     assert.ok(lunarDate.month >= 1 && lunarDate.month <= 12, `invalid lunar month for JDN ${jd}`);
     assert.ok(lunarDate.year > 0, `invalid lunar year for JDN ${jd}`);
     assert.deepEqual(
-      lunarToSolar(
-        lunarDate.day,
-        lunarDate.month,
-        lunarDate.year,
-        lunarDate.isLeap,
-      ),
+      lunarToSolar(lunarDate.day, lunarDate.month, lunarDate.year, lunarDate.isLeap),
       solarDate,
       `round-trip failed for JDN ${jd}`,
     );

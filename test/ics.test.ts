@@ -78,17 +78,12 @@ test("buildCalendar emits a CRLF iCalendar without METHOD or a BOM", () => {
   assert.ok(output.startsWith("BEGIN:VCALENDAR\r\n"));
   assert.ok(output.includes("VERSION:2.0\r\n"));
   assert.ok(output.includes("PRODID:-//amlich-ical//EN\r\n"));
-  assert.ok(
-    output.split("\r\n").includes("DTSTART;VALUE=DATE:20250129"),
-  );
+  assert.ok(output.split("\r\n").includes("DTSTART;VALUE=DATE:20250129"));
   assert.doesNotMatch(output, /METHOD:/);
   assert.ok(output.includes("\r\n"));
   assert.doesNotMatch(output, /(^|[^\r])\n/);
   assert.ok(output.endsWith("END:VCALENDAR\r\n"));
-  assert.notDeepEqual(
-    Buffer.from(output, "utf8").subarray(0, 3),
-    Buffer.from([0xef, 0xbb, 0xbf]),
-  );
+  assert.notDeepEqual(Buffer.from(output, "utf8").subarray(0, 3), Buffer.from([0xef, 0xbb, 0xbf]));
 });
 
 test("buildCalendar escapes and folds dynamic calendar properties", () => {

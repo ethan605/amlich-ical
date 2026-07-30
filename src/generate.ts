@@ -79,9 +79,7 @@ export function buildEvents(): IcsEvent[] {
 
     const ram = jdToDate(nm + 14);
     const festival = !lab.isLeap
-      ? FESTIVALS.find(
-          (entry) => entry.lunarMonth === lab.month && entry.lunarDay === 15,
-        )
+      ? FESTIVALS.find((entry) => entry.lunarMonth === lab.month && entry.lunarDay === 15)
       : undefined;
     const festivalSuffix = festival === undefined ? "" : ` — ${festival.name}`;
     addEvent("ram", ram, `Rằm tháng ${lunarMonthName(lab.month, lab.isLeap)}${festivalSuffix}`);
@@ -99,19 +97,11 @@ export function buildEvents(): IcsEvent[] {
 
   for (let year = 2024; year <= 2056; year++) {
     for (const festival of FESTIVALS) {
-      if (
-        festival.lunarDay === 15 ||
-        (festival.lunarMonth === 1 && festival.lunarDay === 1)
-      ) {
+      if (festival.lunarDay === 15 || (festival.lunarMonth === 1 && festival.lunarDay === 1)) {
         continue;
       }
 
-      const solar = lunarToSolar(
-        festival.lunarDay,
-        festival.lunarMonth,
-        year,
-        false,
-      );
+      const solar = lunarToSolar(festival.lunarDay, festival.lunarMonth, year, false);
       if (solar !== null) {
         addEvent(`festival-${slug(festival.name)}`, solar, festival.name);
       }

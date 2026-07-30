@@ -33,9 +33,7 @@ test("Tết 2025 block has the expected four dates", () => {
 });
 
 test("Tết supersedes the generic Mùng 1 tháng Giêng event", () => {
-  assert.ok(
-    buildEvents().every((event) => event.summary !== "Mùng 1 tháng Giêng"),
-  );
+  assert.ok(buildEvents().every((event) => event.summary !== "Mùng 1 tháng Giêng"));
 });
 
 test("day-15 festivals merge into their Rằm events without duplicates", () => {
@@ -58,9 +56,7 @@ test("day-15 festivals merge into their Rằm events without duplicates", () => 
       `Rằm tháng ${lunarMonthName(festival.month, false)} — ${festival.name}`,
     );
     assert.ok(
-      !events.some(
-        (event) => hasStart(event, solar) && event.summary === festival.name,
-      ),
+      !events.some((event) => hasStart(event, solar) && event.summary === festival.name),
       `${festival.name} must not be a standalone event`,
     );
   }
@@ -71,9 +67,7 @@ test("Giỗ Tổ Hùng Vương is emitted on its lunar-to-solar date", () => {
   assert.ok(gioTo);
 
   assert.ok(
-    buildEvents().some(
-      (event) => event.summary === "Giỗ Tổ Hùng Vương" && hasStart(event, gioTo),
-    ),
+    buildEvents().some((event) => event.summary === "Giỗ Tổ Hùng Vương" && hasStart(event, gioTo)),
   );
 });
 
@@ -111,14 +105,10 @@ test("the 2025 leap sixth month has exact Mùng 1 and Rằm labels", () => {
 test("Tết-boundary descriptions retain the event's lunar year", () => {
   const events = buildEvents();
   const giaoThua = events.find(
-    (event) =>
-      event.summary === "Giao thừa" &&
-      hasStart(event, { day: 28, month: 1, year: 2025 }),
+    (event) => event.summary === "Giao thừa" && hasStart(event, { day: 28, month: 1, year: 2025 }),
   );
   const mung1Tet = events.find(
-    (event) =>
-      event.summary === "Mùng 1 Tết" &&
-      hasStart(event, { day: 29, month: 1, year: 2025 }),
+    (event) => event.summary === "Mùng 1 Tết" && hasStart(event, { day: 29, month: 1, year: 2025 }),
   );
 
   assert.ok(giaoThua);
