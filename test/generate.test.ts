@@ -39,7 +39,7 @@ test("Tết supersedes the generic Mùng 1 tháng Giêng event", () => {
 test("day-15 festivals merge into their Rằm events without duplicates", () => {
   const events = buildEvents();
   const festivals = [
-    { month: 1, name: "Tết Nguyên Tiêu (Rằm tháng Giêng)" },
+    { month: 1, name: "Tết Nguyên Tiêu" },
     { month: 4, name: "Đại lễ Phật Đản" },
     { month: 7, name: "Lễ Vu Lan" },
     { month: 8, name: "Tết Trung Thu" },

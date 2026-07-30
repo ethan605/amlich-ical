@@ -2,7 +2,7 @@ export type Festival = { lunarMonth: number; lunarDay: number; name: string };
 
 export const FESTIVALS: Festival[] = [
   { lunarMonth: 1, lunarDay: 1, name: "Tết Nguyên Đán" },
-  { lunarMonth: 1, lunarDay: 15, name: "Tết Nguyên Tiêu (Rằm tháng Giêng)" },
+  { lunarMonth: 1, lunarDay: 15, name: "Tết Nguyên Tiêu" },
   { lunarMonth: 3, lunarDay: 3, name: "Tết Hàn Thực" },
   { lunarMonth: 3, lunarDay: 10, name: "Giỗ Tổ Hùng Vương" },
   { lunarMonth: 4, lunarDay: 15, name: "Đại lễ Phật Đản" },
